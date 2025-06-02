@@ -4,29 +4,20 @@
     设a和b是2个正整数，a<=b，找出a和b之间约数个数最多的数x。
     算法设计：对于给定的2个正整数a<=b,计算a和b之间约数个数最多的数
 '''
-import numpy as np
 
-MAXP = 50
-
-# primes()函数用于产生质数
-def primes():
-    GET = np.full(MAXP+1, True, dtype=bool)
-    for i in range(2, MAXP+1):
-        if GET[i]:
-            j = i + 1
-            while j <= MAXP:
-                GET[j] = False
-                j += i
-    print(GET)
-
-
-# search()函数用于搜索最多约数
-
-
-
-if __name__ == '__main__':
-    a, b = map(int, input().split(' '))
-    primes()
-
+# TODO: 代码解释
+# 初始化: 定义前15个质数列表primes
+# 主函数 find_number_with_most_divisors
+#   处理输入区间[a, b]
+#   调用DFS函数生成候选数，并更新约数个数最多的数
+#   若未找到候选数(best_num==0):
+#       若区间长度 <= 10000,暴力扫描每个数的约数个数
+#       否则，返回区间最小数a
+# DFS函数
+#   参数: 当前数current_value, 当前约数个数current_divisors, 上一个指数last_exponent, 当前质数索引index
+#   剪纸: 当前数超过b, 或当前约数个数无法超过最大记录
+#   递归生成数: 尝试跳过当前质数， 或使用当前质数的指数 (1到last_exponent)
+#   更新: 若生成数在[a, b]内且约数个数更多(或相同但数更小)，则更新结果
+# 辅助函数count_divisors: 计算一个数的约数个数(通过遍历到平方根)
 
 
